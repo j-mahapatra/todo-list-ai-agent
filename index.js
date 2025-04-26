@@ -76,6 +76,7 @@ while (true) {
     const action = JSON.parse(response);
 
     if (action.type === 'output') {
+      console.log(action.output);
       break;
     } else if (action.type === 'action') {
       const fn = TOOLS[action.function];
