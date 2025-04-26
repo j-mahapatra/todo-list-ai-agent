@@ -38,9 +38,9 @@ export async function updateTodo(data) {
 
 export async function findTodo(searchQuery) {
   const todo = await db
-    .query()
+    .select()
     .from(todosTable)
-    .where(ilike(todosTable.title, searchQuery));
+    .where(ilike(todosTable.title, `%${searchQuery}%`));
 
   return todo;
 }
