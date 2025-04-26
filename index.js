@@ -70,14 +70,12 @@ while (true) {
     });
 
     const response = chat.choices[0].message.content;
-    console.log(response);
 
     messages.push({ role: 'assistant', content: response });
 
     const action = JSON.parse(response);
 
     if (action.type === 'output') {
-      console.log(action.output);
       break;
     } else if (action.type === 'action') {
       const fn = TOOLS[action.function];
